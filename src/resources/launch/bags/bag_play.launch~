@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- play bags inside bags/ dir -->
+  <!-- roslaunch p3at_tutorial bag_play.launch file:=sensor_data_2017-06-14-21-44-24.bag -->
+  <arg name="file"/>
+  <arg name="rate" default="1.0">
+  <node name="play" pkg="rosbag" type="play" output="screen" args="--pause -r $(arg rate) $(find p3at_tutorial)/bags/$(arg file)"/>
+</launch>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- correct bags inside bags/ dir -->
+  <!-- roslaunch p3at_tutorial bag_reindex.launch -->
+  <node pkg="rosbag" type="reindex" name="correct" output="screen" args="$(find p3at_tutorial)/bags/*.bag"/>
+</launch>
