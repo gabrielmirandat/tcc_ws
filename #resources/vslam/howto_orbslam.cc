@@ -13,7 +13,7 @@ papers
 |
 |
 |
-1. INSTALL (with rosbuild workspace (not catkin) / check how to translate)
+1. INSTALL
 
   # INSTALL DEPENDENCIES
     $ sudo apt-get install libboost-all-dev
