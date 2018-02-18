@@ -291,3 +291,53 @@ Linking C executable cmTryCompileExec1649384425
 make[1]: Leaving directory `/home/gabriel/ros/tcc_ws/catkin_ws/build/CMakeFiles/CMakeTmp'
 
 
+Performing C SOURCE FILE Test OpenMP_FLAG_DETECTED succeded with the following output:
+Change Dir: /home/gabriel/ros/tcc_ws/catkin_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3448687344/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3448687344.dir/build.make CMakeFiles/cmTryCompileExec3448687344.dir/build
+make[1]: Entering directory `/home/gabriel/ros/tcc_ws/catkin_ws/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/gabriel/ros/tcc_ws/catkin_ws/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3448687344.dir/src.c.o
+/usr/bin/cc   -DOpenMP_FLAG_DETECTED -fopenmp   -o CMakeFiles/cmTryCompileExec3448687344.dir/src.c.o   -c /home/gabriel/ros/tcc_ws/catkin_ws/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTryCompileExec3448687344
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3448687344.dir/link.txt --verbose=1
+/usr/bin/cc   -DOpenMP_FLAG_DETECTED -fopenmp    CMakeFiles/cmTryCompileExec3448687344.dir/src.c.o  -o cmTryCompileExec3448687344 -rdynamic 
+make[1]: Leaving directory `/home/gabriel/ros/tcc_ws/catkin_ws/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <omp.h>
+int main() {
+#ifdef _OPENMP
+  return 0;
+#else
+  breaks_on_purpose
+#endif
+}
+
+Performing C++ SOURCE FILE Test OpenMP_FLAG_DETECTED succeded with the following output:
+Change Dir: /home/gabriel/ros/tcc_ws/catkin_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2601325104/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2601325104.dir/build.make CMakeFiles/cmTryCompileExec2601325104.dir/build
+make[1]: Entering directory `/home/gabriel/ros/tcc_ws/catkin_ws/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/gabriel/ros/tcc_ws/catkin_ws/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2601325104.dir/src.cxx.o
+/usr/bin/c++    -DOpenMP_FLAG_DETECTED -fopenmp   -o CMakeFiles/cmTryCompileExec2601325104.dir/src.cxx.o -c /home/gabriel/ros/tcc_ws/catkin_ws/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTryCompileExec2601325104
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2601325104.dir/link.txt --verbose=1
+/usr/bin/c++    -DOpenMP_FLAG_DETECTED -fopenmp    CMakeFiles/cmTryCompileExec2601325104.dir/src.cxx.o  -o cmTryCompileExec2601325104 -rdynamic 
+make[1]: Leaving directory `/home/gabriel/ros/tcc_ws/catkin_ws/build/CMakeFiles/CMakeTmp'
+
+Source file was:
+
+#include <omp.h>
+int main() {
+#ifdef _OPENMP
+  return 0;
+#else
+  breaks_on_purpose
+#endif
+}
+
