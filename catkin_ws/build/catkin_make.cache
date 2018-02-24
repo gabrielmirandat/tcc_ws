@@ -1,2 +1,0 @@
-dpptam:p3at_tutorial:resources
--DCATKIN_DEVEL_PREFIX=/home/gabriel/ros/tcc_ws/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/gabriel/ros/tcc_ws/catkin_ws/install -G Unix Makefiles
