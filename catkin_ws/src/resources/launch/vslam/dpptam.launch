@@ -8,11 +8,5 @@
 
  	<node pkg="dpptam" type="dpptam" name="dpptam" cwd="node" output="screen"/>
 
-  <arg name="file1" default="sensor_data_2017-10-19-16-46-47.bag"/>
-  <arg name="file2" default="sensor_data_2017-10-25-16-46-57.bag"/>
-  <arg name="file3" default="sensor_data_2017-10-25-16-55-48.bag"/>
-  <arg name="file4" default="sensor_data_2017-11-09-14-29-09.bag"/>
-  <arg name="rate" default="1.0"/>
-  <arg name="secs" default="20"/>
-  <node name="play" pkg="rosbag" type="play" output="screen" args="-r $(arg rate) -d $(arg secs) $(find resources)/bags/$(arg file4)"/>
+  <include file="$(find resources)/launch/bags/bag_play.launch"/>
 </launch>

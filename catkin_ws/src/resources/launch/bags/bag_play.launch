@@ -1,9 +1,13 @@
 <?xml version="1.0"?>
 <launch>
-  <!-- play bags inside bags/ dir -->
-  <!-- roslaunch p3at_tutorial bag_play.launch file:=sensor_data_2017-06-14-21-44-24.bag -->
-  <arg name="file"/>
-  <arg name="rate" default="1.0"/>
-  <arg name="secs" default="20">
-  <node name="play" pkg="rosbag" type="play" output="screen" args="-r $(arg rate) -d $(arg secs) $(find p3at_tutorial)/bags/$(arg file)"/>
+  <arg name="file1" value="sensor_data_2017-10-19-16-46-47.bag"/>
+  <arg name="file2" value="sensor_data_2017-10-25-16-46-57.bag"/>
+  <arg name="file3" value="sensor_data_2017-10-25-16-55-48.bag"/>
+  <arg name="file4" value="sensor_data_2017-11-09-14-29-09.bag"/>
+
+  <arg name="rate" default="3.0"/>
+  <arg name="secs" default="5"/>
+  <node pkg="rosbag" type="play" name="play" output="screen" args="-r $(arg rate) -d $(arg secs) $(find resources)/bags/$(arg file2)"/>
+
+  <!-- <include file="$(find resources)/launch/visualization/vis_camera_images.launch"/> -->
 </launch>

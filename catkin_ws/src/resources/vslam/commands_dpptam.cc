@@ -1,7 +1,7 @@
 # compile
 $ source ~/ros/tcc_ws/catkin_ws/devel/setup.bash
 $ cd ~/ros/tcc_ws/catkin_ws
-$ catkin_make --pkg dpptam
+$ catkin_make_isolated --pkg dpptam
 $ roscore
 
 # run bag paused

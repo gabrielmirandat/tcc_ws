@@ -1,21 +1,10 @@
 <launch>
-  <node pkg="image_view" type="image_view" name="image_view" respawn="false" output="log">
-    <remap from="image" to="/camera/image_raw"/>
-    <param name="autosize" value="true"/>
-  </node>
-
-	<node pkg="lsd_slam_viewer" type="viewer" name="viewer" cwd="node" output="screen"/>
+  <node pkg="lsd_slam_viewer" type="viewer" name="viewer" cwd="node" output="screen"/>
 
  	<node pkg="lsd_slam_core" type="live_slam" name="live_slam" cwd="node" output="screen">
     <remap from="image" to="/camera/image_raw"/>
     <param name="calib" value="$(find resources)/calibration/lsdslam_pioneer.cfg"/>
   </node>
 
-  <arg name="file1" default="sensor_data_2017-10-19-16-46-47.bag"/>
-  <arg name="file2" default="sensor_data_2017-10-25-16-46-57.bag"/>
-  <arg name="file3" default="sensor_data_2017-10-25-16-55-48.bag"/>
-  <arg name="file4" default="sensor_data_2017-11-09-14-29-09.bag"/>
-  <arg name="rate" default="1.0"/>
-  <arg name="secs" default="5"/>
-  <node name="play" pkg="rosbag" type="play" output="screen" args="-r $(arg rate) -d $(arg secs) $(find resources)/bags/$(arg file4)"/>
+  <include file="$(find resources)/launch/bags/bag_play.launch"/>
 </launch>
