@@ -17,8 +17,11 @@
 *.out
 *.app
 
-# Bags
+# Bags and videos
 *.bag
+*.mp4
+*.avi
+*.mp3
 
 # Ros
 bin/

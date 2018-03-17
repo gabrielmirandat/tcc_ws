@@ -5,9 +5,11 @@
   <arg name="file3" value="sensor_data_2017-10-25-16-55-48.bag"/>
   <arg name="file4" value="sensor_data_2017-11-09-14-29-09.bag"/>
 
-  <arg name="rate" default="3.0"/>
-  <arg name="secs" default="5"/>
-  <node pkg="rosbag" type="play" name="play" output="screen" args="-r $(arg rate) -d $(arg secs) $(find resources)/bags/$(arg file2)"/>
+  <arg name="file_lsdslam" value="lsdslam_example_machine.bag"/>
+  <arg name="file_orbslam" value="orbslam_example.bag"/>
+  <arg name="file_dpptam" value="dpptam_example_lab_unizar.bag"/>
 
-  <!-- <include file="$(find resources)/launch/visualization/vis_camera_images.launch"/> -->
+  <arg name="rate" default="1.0"/>
+  <arg name="secs" default="5"/>
+  <node pkg="rosbag" type="play" name="play" output="screen" args="-r $(arg rate) -d $(arg secs) $(find resources)/bags/$(arg file_dpptam)"/>
 </launch>

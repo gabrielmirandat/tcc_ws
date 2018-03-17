@@ -1,0 +1,15 @@
+<launch>
+  <!-- <node pkg="image_view" type="image_view" name="image_view" respawn="false" output="log">
+    <remap from="/image" to="/ORB_SLAM/Frame"/>
+    <param name="autosize" value="true"/>
+  </node>
+
+	<node pkg="rviz" type="rviz" name="rviz" args="-d $(find resources)/rviz/orbslam.rviz" output="log"/> -->
+
+  <node pkg="ORB_SLAM2" type="Mono" name="Mono"  args="$(find ORB_SLAM2)/Vocabulary/ORBvoc.txt $(find resources)/calibration/orbslam2_multilaser_webcam.yaml" cwd="node" output="screen"/>
+
+  <!-- <include file="$(find resources)/launch/bags/bag_play.launch"/> -->
+
+  <!-- need delay -->
+  <!-- <include file="$(find resources)/launch/cam/cam_opencv.launch"/> -->
+</launch>

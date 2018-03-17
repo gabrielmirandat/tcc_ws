@@ -8,5 +8,8 @@
 
  	<node pkg="dpptam" type="dpptam" name="dpptam" cwd="node" output="screen"/>
 
-  <include file="$(find resources)/launch/bags/bag_play.launch"/>
+  <!-- <include file="$(find resources)/launch/bags/bag_play.launch"/> -->
+
+  <!-- need delay -->
+  <!-- <include file="$(find resources)/launch/cam/cam_opencv.launch"/> -->
 </launch>
