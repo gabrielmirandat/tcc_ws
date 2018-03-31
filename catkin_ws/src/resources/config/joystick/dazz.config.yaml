@@ -1,0 +1,24 @@
+## robot moviment
+# position in joy axes vector
+axis_angular: 0
+axis_linear: 1
+
+# scale of moviment
+scale_angular: 0.15
+scale_angular_turbo: 0.7
+scale_linear: 0.3
+scale_linear_turbo: 1.0
+
+# buttons enable
+enable_button: 6  # L2 shoulder button
+enable_turbo_button: 7  # L1 shoulder button
+
+## camera moviment
+step_pan: 30
+step_tilt: 30
+
+# button for moviment
+pan_positive_button: 1
+pan_negative_button: 3
+tilt_positive_button: 0
+tilt_negative_button: 2
