@@ -1,0 +1,9 @@
+INCLUDEPATH  = include /opt/ros/indigo/include
+DEPENDPATH   = include
+#TARGET  = main
+QMAKE_CXX = ccache g++
+CONFIG -= app_bundle
+HEADERS += include/*.h
+SOURCES += src/*.cc
+LIBS    += -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_video -lboost_timer -lboost_system
+QMAKE_LFLAGS += -c
