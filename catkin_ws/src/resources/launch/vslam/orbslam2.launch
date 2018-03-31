@@ -6,7 +6,9 @@
 
 	<node pkg="rviz" type="rviz" name="rviz" args="-d $(find resources)/rviz/orbslam.rviz" output="log"/> -->
 
-  <node pkg="ORB_SLAM2" type="Mono" name="Mono"  args="$(find ORB_SLAM2)/Vocabulary/ORBvoc.txt $(find resources)/calibration/orbslam2_multilaser_webcam.yaml" cwd="node" output="screen"/>
+  <node pkg="ORB_SLAM2" type="Mono" name="Mono"  args="$(find ORB_SLAM2)/Vocabulary/ORBvoc.txt $(find resources)/calibration/orbslam2_pioneer.yaml" cwd="node" output="screen">
+    <!-- <remap from="/camera/image_raw" to="/image_mono"/> -->
+  </node>
 
   <!-- <include file="$(find resources)/launch/bags/bag_play.launch"/> -->
 
