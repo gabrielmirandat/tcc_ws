@@ -27,7 +27,7 @@ namespace joystick
 
         double axes[6];
         int buttons[12];
-        int pan, tilt;
+        int pan, tilt, zoom;
 
         int enable_button;
         int enable_turbo_button;
@@ -42,12 +42,11 @@ namespace joystick
 
         bool sent_disable_msg;
 
-        int step_pan, step_tilt;
+        int step_pan, step_tilt, step_zoom;
 
-        int pan_positive_button;
-        int pan_negative_button;
-        int tilt_positive_button;
-        int tilt_negative_button;
+        int pan_positive_button, pan_negative_button;
+        int tilt_positive_button, tilt_negative_button;
+        int zoom_positive_button, zoom_negative_button;
     };
 
     // ctor
@@ -67,11 +66,14 @@ namespace joystick
 
         nh_param->param<int>("step_pan", pimpl_->step_pan, 10);
         nh_param->param<int>("step_tilt", pimpl_->step_tilt, 10);
-        nh_param->param<int>("pan_positive_button", pimpl_->pan_positive_button, 1);
-        nh_param->param<int>("pan_negative_button", pimpl_->pan_negative_button, 2);
-        nh_param->param<int>("tilt_positive_button", pimpl_->tilt_positive_button, 0);
-        nh_param->param<int>("tilt_negative_button", pimpl_->tilt_negative_button, 2);
+        nh_param->param<int>("step_zoom", pimpl_->step_zoom, 100);
 
+        nh_param->param<int>("tilt_positive_button", pimpl_->tilt_positive_button, 0);
+        nh_param->param<int>("pan_positive_button", pimpl_->pan_positive_button, 1);
+        nh_param->param<int>("tilt_negative_button", pimpl_->tilt_negative_button, 2);
+        nh_param->param<int>("pan_negative_button", pimpl_->pan_negative_button, 3);
+        nh_param->param<int>("zoom_negative_button", pimpl_->zoom_negative_button, 4);
+        nh_param->param<int>("zoom_positive_button", pimpl_->zoom_positive_button, 5);
 
         // get linear scales
         if (nh_param->getParam("axis_linear", pimpl_->axis_linear_map))
@@ -135,6 +137,8 @@ namespace joystick
         ROS_INFO("Pan negative button %i.", pimpl_->pan_negative_button);
         ROS_INFO("Tilt positive button %i.", pimpl_->tilt_positive_button);
         ROS_INFO("Tilt negative button %i.", pimpl_->tilt_negative_button);
+        ROS_INFO("Zoom positive button %i.", pimpl_->zoom_positive_button);
+        ROS_INFO("Zoom negative button %i.", pimpl_->zoom_negative_button);
 
         spin();
     }
@@ -168,6 +172,7 @@ namespace joystick
     {
         pan = ptz_state_msg->pan;
         tilt = ptz_state_msg->tilt;
+        zoom = ptz_state_msg->zoom;
     }
 
     void Joystick::Impl::processRobotMove()
@@ -257,22 +262,36 @@ namespace joystick
         {
           ptz_state.pan = pan + step_pan;
           if(ptz_state.pan > MAX_PAN) ptz_state.pan = MAX_PAN;
-
         }
+
         if(buttons[pan_negative_button])
         {
           ptz_state.pan = pan - step_pan;
           if(ptz_state.pan < MIN_PAN) ptz_state.pan = MIN_PAN;
         }
+
         if(buttons[tilt_positive_button])
         {
           ptz_state.tilt = tilt + step_tilt;
           if(ptz_state.tilt > MAX_TILT) ptz_state.tilt = MAX_TILT;
         }
+
         if(buttons[tilt_negative_button])
         {
           ptz_state.tilt = tilt - step_tilt;
           if(ptz_state.tilt < MIN_TILT) ptz_state.tilt = MIN_TILT;
+        }
+
+        if(buttons[zoom_positive_button])
+        {
+          ptz_state.zoom = zoom + step_zoom;
+          if(ptz_state.zoom > MAX_ZOOM) ptz_state.zoom = MAX_ZOOM;
+        }
+
+        if(buttons[zoom_negative_button])
+        {
+          ptz_state.zoom = zoom - step_zoom;
+          if(ptz_state.zoom < MIN_ZOOM) ptz_state.zoom = MIN_ZOOM;
         }
 
         ptz_state.relative = false;
