@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<!-- buffsize Default: 256, 0 = infinite. This is the message queue of the recorder object, before messages are being passed on to the bag. Lowering this value might result in messages being dropped before they reach the recording process. -->
+
+<!-- chunksize Default: 768. This is a buffer within the bag file object. Lowering this value will result in more writes to disk. -->
+
+<launch>
+	<node pkg="rosbag" type="record" name="bag" args="/camera/image/grayscale/compressed --buffsize=1024 --chunksize=1024 -o $(find resources)/bags/circuit" output="screen" respawn="true" />
+</launch>
