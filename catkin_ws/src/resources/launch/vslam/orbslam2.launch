@@ -1,6 +1,8 @@
 <launch>
-  <node pkg="ORB_SLAM2" type="Mono" name="Mono" args="$(find ORB_SLAM2)/Vocabulary/ORBvoc.txt $(find resources)/calibration/orbslam2_pioneer.yaml" cwd="node" output="screen">
+  <node pkg="ORB_SLAM2" type="Mono" name="Mono" args="$(find ORB_SLAM2)/Vocabulary/ORBvoc.txt $(find resources)/config/calibration/orbslam2_pioneer_gray.yaml" cwd="node" output="screen">
+    <!-- can be raw or compressed -->
     <param name="image_transport" value="compressed"/>
+
   </node>
 
   <!-- <include file="$(find resources)/launch/bags/bag_play.launch"/> -->

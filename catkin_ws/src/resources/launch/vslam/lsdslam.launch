@@ -7,8 +7,9 @@
   </node> -->
 
   <node pkg="lsd_slam_core" type="live_slam" name="live_slam" cwd="node" output="screen">
-    <remap from="image" to="/camera/image_raw"/>
-    <param name="calib" value="$(find resources)/calibration/lsdslam_cell_vga.cfg"/>
+    <remap from="image" to="/camera/image/grayscale"/>
+    <param name="image_transport" value="compressed"/>
+    <param name="calib" value="$(find resources)/config/calibration/lsdslam_pioneer_gray.cfg"/>
   </node>
 
   <!-- <include file="$(find resources)/launch/bags/bag_play.launch"/> -->

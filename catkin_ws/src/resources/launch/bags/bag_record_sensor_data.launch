@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-	<node pkg="rosbag" type="record" name="bag" args="/camera/image_raw
-		-o $(find resources)/bags/testing_if_record_is_problem" output="screen" respawn="true" />
-</launch>
