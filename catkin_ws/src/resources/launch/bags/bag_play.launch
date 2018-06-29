@@ -10,7 +10,7 @@
   <arg name="file_dpptam" value="dpptam_example_lab_unizar"/>
 
   <arg name="file"/>
-  <arg name="rate" default="1.0"/>
+  <arg name="rate" default="2.5"/>
   <arg name="secs" default="5"/>
   <node pkg="rosbag" type="play" name="play" output="screen" args="-r $(arg rate) -d $(arg secs) $(find resources)/bags/$(arg file).bag"/>
 </launch>
